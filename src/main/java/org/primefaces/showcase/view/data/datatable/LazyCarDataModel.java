@@ -53,7 +53,7 @@ public class LazyCarDataModel extends LazyDataModel<Car> {
     @Override
     public List<Car> load(int first, int pageSize, String sortField, SortOrder sortOrder, Map<String,Object> filters) {
         List<Car> data = new ArrayList<Car>();
-
+System.out.println("-- showcases Call load, first="+first+", pageSize="+pageSize+", sortField="+sortField+", filters"+filters.toString());
         //filter
         for(Car car : datasource) {
             boolean match = true;
@@ -91,7 +91,7 @@ public class LazyCarDataModel extends LazyDataModel<Car> {
         //rowCount
         int dataSize = data.size();
         this.setRowCount(dataSize);
-
+System.out.println("-- showcases Call load, dataSize="+dataSize);
         //paginate
         if(dataSize > pageSize) {
             try {

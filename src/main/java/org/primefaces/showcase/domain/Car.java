@@ -16,37 +16,149 @@
 package org.primefaces.showcase.domain;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class Car implements Serializable {
-    
+
     public String id;
     public String brand;
     public int year;
     public String color;
+    public int engineVolume;
+    public String engineType;
+    public int wheelsSize;
+    public String message;
+    public int status;
+    public String countryOrigin;
+    public Date firstDate;
+    public String countryUse;
+    public Date lastDate;
     public int price;
     public boolean sold;
 
-    public Car() {}
-    
+    public Car() {
+    }
+
     public Car(String id, String brand, int year, String color) {
         this.id = id;
         this.brand = brand;
         this.year = year;
         this.color = color;
     }
-    
+
     public Car(String id, String brand, int year, String color, int price, boolean sold) {
         this.id = id;
         this.brand = brand;
         this.year = year;
-        this.color = color;
+        this.color = color;        
         this.price = price;
         this.sold = sold;
     }
 
+     public Car(String id, String brand, int year, String color,
+            int engineVolume,
+            String engineType,
+            int wheelsSize,
+            String message,
+            int status,
+            String countryOrigin,
+            Date firstDate,
+            String countryUse,
+            Date lastDate,
+            int price, boolean sold) {
+        this.id = id;
+        this.brand = brand;
+        this.year = year;
+        this.color = color;
+        this.engineVolume = engineVolume;
+        this.engineType = engineType;
+        this.wheelsSize = wheelsSize;
+        this.message = message;
+        this.status = status;
+        this.countryOrigin = countryOrigin;
+        this.firstDate = firstDate;
+        this.countryUse = countryUse;
+        this.lastDate = lastDate;
+        this.price = price;
+        this.sold = sold;
+    }
+
+    public int getEngineVolume() {
+        return engineVolume;
+    }
+
+    public void setEngineVolume(int engineVolume) {
+        this.engineVolume = engineVolume;
+    }
+
+    public String getEngineType() {
+        return engineType;
+    }
+
+    public void setEngineType(String engineType) {
+        this.engineType = engineType;
+    }
+
+    public int getWheelsSize() {
+        return wheelsSize;
+    }
+
+    public void setWheelsSize(int wheelsSize) {
+        this.wheelsSize = wheelsSize;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public String getCountryOrigin() {
+        return countryOrigin;
+    }
+
+    public void setCountryOrigin(String countryOrigin) {
+        this.countryOrigin = countryOrigin;
+    }
+
+    public Date getFirstDate() {
+        return firstDate;
+    }
+
+    public void setFirstDate(Date firstDate) {
+        this.firstDate = firstDate;
+    }
+
+    public String getCountryUse() {
+        return countryUse;
+    }
+
+    public void setCountryUse(String countryUse) {
+        this.countryUse = countryUse;
+    }
+
+    public Date getLastDate() {
+        return lastDate;
+    }
+
+    public void setLastDate(Date lastDate) {
+        this.lastDate = lastDate;
+    }
+    
     public String getId() {
         return id;
     }
+
     public void setId(String id) {
         this.id = id;
     }
@@ -54,6 +166,7 @@ public class Car implements Serializable {
     public String getBrand() {
         return brand;
     }
+
     public void setBrand(String brand) {
         this.brand = brand;
     }
@@ -61,6 +174,7 @@ public class Car implements Serializable {
     public int getYear() {
         return year;
     }
+
     public void setYear(int year) {
         this.year = year;
     }
@@ -68,6 +182,7 @@ public class Car implements Serializable {
     public String getColor() {
         return color;
     }
+
     public void setColor(String color) {
         this.color = color;
     }
@@ -75,6 +190,7 @@ public class Car implements Serializable {
     public int getPrice() {
         return price;
     }
+
     public void setPrice(int price) {
         this.price = price;
     }
@@ -82,6 +198,7 @@ public class Car implements Serializable {
     public boolean isSold() {
         return sold;
     }
+
     public void setSold(boolean sold) {
         this.sold = sold;
     }

@@ -31,12 +31,17 @@ public class LazySorter implements Comparator<Car> {
     }
 
     public int compare(Car car1, Car car2) {
+        System.out.println("-- before try sortField="+sortField);
+            System.out.println("-- before try sortOrder="+sortOrder.toString());
         try {
             Object value1 = Car.class.getField(this.sortField).get(car1);
+            System.out.println("-- value1="+value1.toString());
             Object value2 = Car.class.getField(this.sortField).get(car2);
+            System.out.println("-- value2="+value2.toString());
 
             int value = ((Comparable)value1).compareTo(value2);
-            
+            System.out.println("-- value="+value);
+            System.out.println("-- SortOrder="+(SortOrder.ASCENDING.equals(sortOrder) ? value : -1 * value));
             return SortOrder.ASCENDING.equals(sortOrder) ? value : -1 * value;
         }
         catch(Exception e) {

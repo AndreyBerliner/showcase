@@ -40,7 +40,7 @@ public class LazyView implements Serializable {
     
     @PostConstruct
     public void init() {
-        lazyModel = new LazyCarDataModel(service.createCars(200));
+        lazyModel = new LazyCarDataModel(service.createCars(20000));
     }
 
     public LazyDataModel<Car> getLazyModel() {

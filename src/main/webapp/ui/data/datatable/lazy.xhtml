@@ -16,11 +16,11 @@
     </ui:define>
 
     <ui:define name="implementation">
-        
+
         <h:form id="form">
-            <p:dataTable var="car" value="#{dtLazyView.lazyModel}" paginator="true" rows="10"
-                         paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
-                         rowsPerPageTemplate="5,10,15" selectionMode="single" selection="#{dtLazyView.selectedCar}" id="carTable" lazy="true">
+            <p:dataTable var="car" value="#{dtLazyView.lazyModel}" paginator="true" rows="20"
+                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         rowsPerPageTemplate="5,20,20,100,200" selectionMode="single" selection="#{dtLazyView.selectedCar}" id="carTable" lazy="true">
                 <p:ajax event="rowSelect" listener="#{dtLazyView.onRowSelect}" update=":form:carDetail" oncomplete="PF('carDialog').show()" />
                 <p:column headerText="Id" sortBy="#{car.id}" filterBy="#{car.id}">
                     <h:outputText value="#{car.id}" />
@@ -34,6 +34,33 @@
                 <p:column headerText="Color" sortBy="#{car.color}" filterBy="#{car.color}">
                     <h:outputText value="#{car.color}" />
                 </p:column>
+                <p:column headerText="Color" sortBy="#{car.engineVolume}" filterBy="#{car.engineVolume}">
+                    <h:outputText value="#{car.engineVolume}" />
+                </p:column>
+                <p:column headerText="Color" sortBy="#{car.engineType}" filterBy="#{car.engineType}">
+                    <h:outputText value="#{car.engineType}" />
+                </p:column>
+                <p:column headerText="Color" sortBy="#{car.wheelsSize}" filterBy="#{car.wheelsSize}">
+                    <h:outputText value="#{car.wheelsSize}" />
+                </p:column>
+                <p:column headerText="Color" sortBy="#{car.message}" filterBy="#{car.message}">
+                    <h:outputText value="#{car.message}" />
+                </p:column>
+                <p:column headerText="Color" sortBy="#{car.status}" filterBy="#{car.status}">
+                    <h:outputText value="#{car.status}" />
+                </p:column>
+                <p:column headerText="Color" sortBy="#{car.countryOrigin}" filterBy="#{car.countryOrigin}">
+                    <h:outputText value="#{car.countryOrigin}" />
+                </p:column>
+                <p:column headerText="Color" sortBy="#{car.firstDate}" filterBy="#{car.firstDate}">
+                    <h:outputText value="#{car.firstDate}" />
+                </p:column>
+                <p:column headerText="Color" sortBy="#{car.countryUse}" filterBy="#{car.countryUse}">
+                    <h:outputText value="#{car.countryUse}" />
+                </p:column>
+                <p:column headerText="Color" sortBy="#{car.lastDate}" filterBy="#{car.lastDate}">
+                    <h:outputText value="#{car.lastDate}" />
+                </p:column>
             </p:dataTable>
 
             <p:dialog header="Car Detail" widgetVar="carDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
@@ -42,7 +69,7 @@
                         <f:facet name="header">
                             <p:graphicImage name="demo/images/car/#{dtLazyView.selectedCar.brand}-big.gif"/> 
                         </f:facet>
-                        
+
                         <h:outputText value="Id:" />
                         <h:outputText value="#{dtLazyView.selectedCar.id}" />
 
@@ -51,7 +78,7 @@
 
                         <h:outputText value="Color:" />
                         <h:outputText value="#{dtLazyView.selectedCar.color}" style="color:#{dtLazyView.selectedCar.color}"/>
-                    
+
                         <h:outputText value="Price:" />
                         <h:outputText value="#{dtLazyView.selectedCar.price}">
                             <f:convertNumber type="currency" currencySymbol="$" />
@@ -60,7 +87,7 @@
                 </p:outputPanel>
             </p:dialog>
         </h:form>
-        
+
     </ui:define>
 
     <ui:define name="source">
@@ -169,7 +196,7 @@ public class LazyView implements Serializable {
 
                 </pre>
             </p:tab>
-            
+
             <p:tab title="CarService.java">
                 <pre name="code" class="brush:java">
 package org.primefaces.showcase.service;
@@ -258,7 +285,7 @@ public class CarService {
 }
                 </pre>
             </p:tab>
-            
+
             <p:tab title="LazyCarDataModel.java">
                 <pre name="code" class="brush:java">
 package org.primefaces.showcase.view.data.datatable;
@@ -356,7 +383,7 @@ public class LazyCarDataModel extends LazyDataModel&lt;Car&gt; {
 }
                 </pre>
             </p:tab>
-            
+
             <p:tab title="LazySorter.java">
                 <pre name="code" class="brush:java">
 package org.primefaces.showcase.view.data.datatable;
@@ -392,7 +419,7 @@ public class LazySorter implements Comparator&lt;Car&gt; {
 }
                 </pre>
             </p:tab>
-            
+
             <p:tab title="Documentation" titleStyleClass="tab-doc docslide-151" />
         </p:tabView>
 
